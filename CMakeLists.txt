@@ -1,7 +1,7 @@
 # https://github.com/juce-framework/JUCE/blob/master/examples/CMake/AudioPlugin/CMakeLists.txt
 
 cmake_minimum_required(VERSION 3.15)
-project(plug VERSION 0.0.1)
+project(midi_plugin VERSION 0.0.1)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -14,19 +14,19 @@ add_subdirectory(lib/JUCE)
 # juce_set_aax_sdk_path(...)
 
 juce_add_plugin(${PROJECT_NAME}
-    PLUGIN_MANUFACTURER_CODE Manu               # A four-character manufacturer id with at least one upper-case character
-    PLUGIN_CODE Proj                            # A unique four-character plugin id with exactly one upper-case character
+    PLUGIN_MANUFACTURER_CODE Aimu               # A four-character manufacturer id with at least one upper-case character
+    PLUGIN_CODE Dmd0                            # A unique four-character plugin id with exactly one upper-case character
                                                 # GarageBand 10.3 requires the first letter to be upper-case, and the remaining letters to be lower-case
-    FORMATS AU VST3 Standalone                  # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
-    PRODUCT_NAME "JUCE Audio Plugin Test"       # The name of the final executable, which can differ from the target name
+    FORMATS AU VST3                             # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
+    PRODUCT_NAME "MIDI Tutorial Plugin"               # The name of the final executable, which can differ from the target name
     COMPANY_NAME "aimusic"                      # Specify the name of the plugin's author
     # VERSION ...                               # Set this if the plugin version is different to the project version
     # ICON_BIG ...                              # ICON_* arguments specify a path to an image file to use as an icon for the Standalone
     # ICON_SMALL ...
     # IS_SYNTH TRUE/FALSE                       # Is this a synth or an effect?
-    # NEEDS_MIDI_INPUT TRUE/FALSE               # Does the plugin need midi input?
-    # NEEDS_MIDI_OUTPUT TRUE/FALSE              # Does the plugin need midi output?
-    # IS_MIDI_EFFECT TRUE/FALSE                 # Is this plugin a MIDI effect?
+    NEEDS_MIDI_INPUT TRUE                       # Does the plugin need midi input?
+    # NEEDS_MIDI_OUTPUT TRUE                    # Does the plugin need midi output?
+    # IS_MIDI_EFFECT TRUE                       # Is this plugin a MIDI effect?
     # EDITOR_WANTS_KEYBOARD_FOCUS TRUE/FALSE    # Does the editor need keyboard focus?
     # COPY_PLUGIN_AFTER_BUILD TRUE/FALSE        # Should the plugin be installed to a default location after building?
 )
